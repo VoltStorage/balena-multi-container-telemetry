@@ -1,6 +1,6 @@
 services:
   balena-multi-container-telemetry:
-    image: balena-multi-container-telemetry:arm64
+    build: .
     network_mode: host
     volumes:
       - ./config:/app/config
