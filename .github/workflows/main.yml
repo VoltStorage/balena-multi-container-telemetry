@@ -28,3 +28,4 @@ jobs:
         context: .
         push: true
         tags: volstorage/balena-multi-container-telemetry:latest
+        platforms: linux/arm64
