@@ -1,0 +1,5 @@
+services:
+  rust_cross_compile_aarch64:
+    build: .
+    volumes:
+      - ..:/app

@@ -1,0 +1,90 @@
+[
+  {
+    "BlockIO": "0B / 0B",
+    "CPUPerc": "1.75%",
+    "Container": "4889ab0711ac",
+    "ID": "4889ab0711ac17500a5de1c3d50eb6bfbc7eb367d349797f9fe8dcb92fd9e914",
+    "MemPerc": "31.12%",
+    "MemUsage": "318.6MiB / 1GiB",
+    "Name": "b_10800414_3361262_f54e4ffc136d1344ee98993b36b9deeb",
+    "NetIO": "541MB / 680MB",
+    "PIDs": "26"
+  },
+  {
+    "BlockIO": "0B / 0B",
+    "CPUPerc": "1.54%",
+    "Container": "554b4c3bd880",
+    "ID": "554b4c3bd8805380451b5f27959675e0383b0c45f0e10d4c1fbb011f66c32a39",
+    "MemPerc": "99.99%",
+    "MemUsage": "511.9MiB / 512MiB",
+    "Name": "m_10800417_3361262_f54e4ffc136d1344ee98993b36b9deeb",
+    "NetIO": "3.09GB / 4.79GB",
+    "PIDs": "3"
+  },
+  {
+    "BlockIO": "0B / 0B",
+    "CPUPerc": "1.21%",
+    "Container": "93802f9d3592",
+    "ID": "93802f9d359210c48f69ce268716b1ca5069bf692dec083e093b2ee3c09c7050",
+    "MemPerc": "73.90%",
+    "MemUsage": "94.59MiB / 128MiB",
+    "Name": "p_10800419_3361262_f54e4ffc136d1344ee98993b36b9deeb",
+    "NetIO": "1.72GB / 1.24GB",
+    "PIDs": "24"
+  },
+  {
+    "BlockIO": "0B / 0B",
+    "CPUPerc": "4.06%",
+    "Container": "9f0a7c8ea591",
+    "ID": "9f0a7c8ea5917eb138b615735c1a3f3934b1d530b9d68d5d4537b994a2d068e0",
+    "MemPerc": "87.63%",
+    "MemUsage": "112.2MiB / 128MiB",
+    "Name": "i_10800418_3361262_f54e4ffc136d1344ee98993b36b9deeb",
+    "NetIO": "2.1GB / 3.28GB",
+    "PIDs": "31"
+  },
+  {
+    "BlockIO": "0B / 0B",
+    "CPUPerc": "0.79%",
+    "Container": "5afbb43d9a69",
+    "ID": "5afbb43d9a693d4f9c4ff9cfaad832c829aed09b645e9e7efd6f6f218e3de019",
+    "MemPerc": "28.05%",
+    "MemUsage": "287.2MiB / 1GiB",
+    "Name": "c_10800416_3361262_f54e4ffc136d1344ee98993b36b9deeb",
+    "NetIO": "1.25GB / 389MB",
+    "PIDs": "25"
+  },
+  {
+    "BlockIO": "0B / 0B",
+    "CPUPerc": "6.69%",
+    "Container": "e2e6a2aa802e",
+    "ID": "e2e6a2aa802e0c9511f7a56003eafeb1d6749cf1f665dad090e02388fb0aebaf",
+    "MemPerc": "10.22%",
+    "MemUsage": "209.2MiB / 2GiB",
+    "Name": "n_10800415_3361262_f54e4ffc136d1344ee98993b36b9deeb",
+    "NetIO": "15.3GB / 40.4GB",
+    "PIDs": "12"
+  },
+  {
+    "BlockIO": "0B / 0B",
+    "CPUPerc": "1.21%",
+    "Container": "07ea5bb7bbf6",
+    "ID": "07ea5bb7bbf6cc1e62e23b56c4e6fc2f8762248499adae0ecfd8321b0067d671",
+    "MemPerc": "0.91%",
+    "MemUsage": "71.9MiB / 7.676GiB",
+    "Name": "l_10800421_3361262_f54e4ffc136d1344ee98993b36b9deeb",
+    "NetIO": "2.52GB / 4.05GB",
+    "PIDs": "8"
+  },
+  {
+    "BlockIO": "0B / 0B",
+    "CPUPerc": "1.80%",
+    "Container": "c6a10bcb79ab",
+    "ID": "c6a10bcb79ab1ad5c804875a51fde599ecdf9a7a766e05bff42a1921dd072f45",
+    "MemPerc": "0.75%",
+    "MemUsage": "59MiB / 7.676GiB",
+    "Name": "balena_supervisor",
+    "NetIO": "0B / 0B",
+    "PIDs": "17"
+  }
+]
