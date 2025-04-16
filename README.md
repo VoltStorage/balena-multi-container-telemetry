@@ -54,7 +54,7 @@ The MQTT exporter is configured via `config/mqtt.config.json` (see `mqtt.example
 ## Contributing and Building
 
 To build the application binary for Balena-supported devices, an example setup for `aarch64` is defined in the
-`Dockerfile` and `docker-compose.yaml` within `cross-compile`.
+within `cross-compile`; usage: `docker-compose -f cross-compile/docker-compose.yaml up --build`
 
 ### Container Image Build
 To recreate the application binary and build a docker container image from it, use the `Dockerfile` in the root directory.
