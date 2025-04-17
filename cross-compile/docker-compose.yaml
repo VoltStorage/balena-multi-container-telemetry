@@ -1,5 +1,8 @@
 services:
   rust_cross_compile_aarch64:
-    build: .
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      target: builder
     volumes:
       - ..:/app
