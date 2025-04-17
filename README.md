@@ -15,6 +15,11 @@ Two modes are supported for collecting metrics:
 
 For configuration details of collectors, parsers, and exporters, see the following sections.
 
+### General Configuration
+
+All configuration files for collector's, exporter's and log configuration are expected to be in one `config` directory.
+By default, this points to the relative "config/" directory but can be overridden via the env var `CONFIG_DIR`.
+
 ### Collectors
 
 Configuration is done in `config/balena_stats_collector.config.json`; see `balena_stats_collector.example-config.json`
@@ -57,7 +62,9 @@ To build the application binary for Balena-supported devices, an example setup f
 `Dockerfile` and `docker-compose.yaml` within `cross-compile`.
 
 ### Container Image Build
-To recreate the application binary and build a docker container image from it, use the `Dockerfile` in the root directory.
+
+To recreate the application binary and build a docker container image from it, use the `Dockerfile` in the root
+directory.
 
 Here is an example of how to build for `arm64`, which is used on Balena:
 
