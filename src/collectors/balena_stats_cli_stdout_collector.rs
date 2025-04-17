@@ -25,9 +25,36 @@ fn collect_raw_from_cli() -> anyhow::Result<String> {
 
     if output.status.success() {
         let stdout = String::from_utf8_lossy(&output.stdout);
-        stdout_lines_to_json_array(stdout.trim())
+        let unquoted_lines = remove_line_quotes(stdout.trim())?;
+        stdout_lines_to_json_array(&unquoted_lines)
     } else {
         let stderr = String::from_utf8_lossy(&output.stderr);
         Err(anyhow!("{}", stderr))
+    }
+}
+
+pub fn remove_line_quotes(stdout: &str) -> anyhow::Result<String> {
+    let lines = stdout.split('\n').collect::<Vec<&str>>();
+    let trimmed: Vec<&str> = lines
+        .iter()
+        .filter(|line| line.trim().len() > 0)
+        .map(|line| &line[1..line.len() - 1]) // remove outer quotes
+        .collect();
+    let joined = trimmed.join("\n");
+    Ok(joined)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn should_remove_line_quotes() {
+        let stdout = include_str!("../../test-data/balena_cli_stats_stdout_quote_lines.txt");
+        let expected = include_str!("../../test-data/balena_stats_stdout.txt");
+
+        let actual = remove_line_quotes(stdout);
+
+        assert_eq!(actual.unwrap(), expected)
     }
 }

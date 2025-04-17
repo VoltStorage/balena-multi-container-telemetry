@@ -1,11 +1,10 @@
 pub fn stdout_lines_to_json_array(stdout: &str) -> anyhow::Result<String> {
     let lines = stdout.split('\n').collect::<Vec<&str>>();
     let trimmed: Vec<&str> = lines
-        .iter()
+        .into_iter()
         .filter(|line| line.trim().len() > 0)
-        .map(|line| &line[1..line.len() - 1]) // remove outer quotes
         .collect();
-    let joined = trimmed.join(",");
+    let joined = trimmed.join(",\n");
     Ok(format!("[{}]", joined))
 }
 
