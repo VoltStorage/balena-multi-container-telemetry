@@ -5,6 +5,7 @@ use crate::collectors::balena_stats_collector_config::{
 };
 use crate::collectors::balena_stats_file_collector::BalenaStatsFileCollector;
 use crate::exporters::mqtt::export;
+use crate::util::config::{build_path, CONFIG_DIR};
 use lazy_static::lazy_static;
 use log::{error, info, warn};
 use log4rs;
@@ -41,7 +42,7 @@ async fn tick() {
 
 #[tokio::main]
 async fn main() {
-    log4rs::init_file("config/log4rs.yaml", Default::default()).unwrap();
+    log4rs::init_file(build_path(vec![&CONFIG_DIR, "log4rs.yaml"]), Default::default()).unwrap();
     warn!("Logging < warn to file only; please see log directory.");
 
     let mut interval = time::interval(Duration::from_secs(
