@@ -5,6 +5,7 @@ services:
     environment:
       - CONFIG_DIR=/app/data/config
     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
       - ./config:/app/data/config
       - ./test-data:/app/data/test-data
       - ./log:/app/data/log
