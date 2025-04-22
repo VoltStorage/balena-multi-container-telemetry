@@ -9,7 +9,7 @@ It collects metrics from CLI commands (`balena stats`) output or a file and expo
 
 Two modes are supported for collecting metrics:
 
-- `CLI`: Intended for direct deployment on the Balena Host OS.
+- `CLI`: Intended for direct deployment on the Balena Host OS or if you are willing to mount the docker/balena socket.
 - `FILE`: Can be used either on the Balena Host OS or inside a container. For an example how to run it as a container,
   refer to `docker-compose.yaml`.
 
@@ -31,8 +31,13 @@ as an example:
 #### CLI
 
 Internally, this application executes the CLI command `balena stats` (or `docker stats`; see `cli_path` in
-`balena_stats_collector.config.json`). To avoid forwarding the Balena/Docker socket into a container, the only supported
-mode is running directly on the Balena Host OS.
+`balena_stats_collector.config.json`). Either the Balena/Docker socket needs to be mounted into the container or this
+application is directly executed on the Balena Host OS.
+
+If you are setting up this container via a `docker-compose.yaml` for Balena, you can use the [label
+`io.balena.features.balena-socket: 1`](https://docs.balena.io/reference/supervisor/docker-compose/#labels).
+
+To mount the docker socket manually as a volume use `-v /var/run/docker.sock:/var/run/docker.sock`.
 
 #### FILE
 
