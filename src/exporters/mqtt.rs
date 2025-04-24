@@ -1,5 +1,5 @@
 use crate::domain::ContainerStats;
-use crate::util::config::get_config;
+use crate::util::config::{build_path, get_config, CONFIG_DIR};
 use anyhow::anyhow;
 use lazy_static::lazy_static;
 use log::error;
@@ -23,10 +23,8 @@ struct MqttConfig {
     device_id: String,
 }
 
-const DEFAULT_CONFIG_PATH: &str = "config/mqtt.config.json";
-
 lazy_static! {
-    static ref CONFIG: MqttConfig = get_config(DEFAULT_CONFIG_PATH.to_string());
+    static ref CONFIG: MqttConfig = get_config(build_path(vec![&CONFIG_DIR, "mqtt.config.json"]));
 }
 
 lazy_static! {
@@ -147,9 +145,9 @@ mod tests {
 
     #[test]
     fn should_get_config() {
-        let test_config_path = "test-data/config/mqtt.config.json";
+        let test_config_path = build_path(vec!["test-data/config/mqtt.config.json"]);
 
-        let actual: MqttConfig = get_config(test_config_path.to_string());
+        let actual: MqttConfig = get_config(test_config_path);
 
         assert_eq!(actual.broker_url, "tcp://localhost:1883");
         assert_eq!(

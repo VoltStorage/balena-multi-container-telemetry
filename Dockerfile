@@ -19,7 +19,8 @@ FROM debian:latest
 
 RUN apt-get update && apt-get install -y \
     libssl-dev \
-    jq
+    jq \
+    docker.io
 
 WORKDIR /app
 

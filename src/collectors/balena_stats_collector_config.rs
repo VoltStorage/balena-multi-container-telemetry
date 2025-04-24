@@ -1,4 +1,4 @@
-use crate::util::config::get_config;
+use crate::util::config::{build_path, get_config, CONFIG_DIR};
 use serde;
 use serde::Deserialize;
 
@@ -16,8 +16,6 @@ pub struct BalenaStatsCollectorConfig {
     pub collection_interval_in_seconds: u64,
 }
 
-const DEFAULT_CONFIG_PATH: &str = "config/balena_stats_collector.config.json";
-
 pub fn get_collector_config() -> BalenaStatsCollectorConfig {
-    get_config(DEFAULT_CONFIG_PATH.to_string())
+    get_config(build_path(vec![&CONFIG_DIR, "balena_stats_collector.config.json"]))
 }

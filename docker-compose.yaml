@@ -2,7 +2,10 @@ services:
   balena-multi-container-telemetry:
     build: .
     network_mode: host
+    environment:
+      - CONFIG_DIR=/app/data/config
     volumes:
-      - ./config:/app/config
-      - ./test-data:/app/test-data
-      - ./log:/app/log
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./config:/app/data/config
+      - ./test-data:/app/data/test-data
+      - ./log:/app/data/log
