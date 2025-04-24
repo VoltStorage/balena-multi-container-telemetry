@@ -1,5 +1,6 @@
 {
   "broker_url": "tcp://localhost:1883",
   "device_id": "d35a7ea843c61c723a12f19a41c26ef1",
-  "root_topic_template": "root/{device_id}/telemetry/system/{service_name}"
+  "unit": "my-unit",
+  "root_topic_template": "root/{device_id}/telemetry/{unit}/{service_name}"
 }

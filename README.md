@@ -48,7 +48,8 @@ must match output from `balena stats --no-stream --format {{json .}}`.
 Configure MQTT exporter via `config/mqtt.config.json` (see `mqtt.example-config.json`).
 
 - `broker_url`: e.g., `tcp://localhost:1883`; only unauthenticated connections supported currently.
-- `device_id`: Fallback value if `BALENA_DEVICE_UUID` is unavailable.
+- `device_id`: Identifier for a device
+- `unit`: Identifier of a unit
 - `root_topic_template`: Defines root topic for publishing metrics. Default:
   `root/{device_id}/telemetry/system/{service_name}`. Extracts `service_name` from `NAME` column of
   `balena stats`. Extends root topic with metric names like `cpu_usage_in_percent` or `memory_usage_in_percent`.
