@@ -6,7 +6,6 @@ use log::error;
 use paho_mqtt as mqtt;
 use paho_mqtt::Client;
 use serde::Deserialize;
-use std::env;
 use std::string::ToString;
 use std::time::Duration;
 
@@ -21,6 +20,7 @@ struct MqttConfig {
     broker_url: String,
     root_topic_template: String,
     device_id: String,
+    unit: String,
 }
 
 lazy_static! {
@@ -48,14 +48,14 @@ fn publish(message: MqttMessage) {
 fn map_to_mqtt_messages(stats: Vec<ContainerStats>) -> Vec<MqttMessage> {
     stats
         .iter()
-        .flat_map(|stat| map_to_mqtt_message(stat, &CONFIG.root_topic_template))
+        .flat_map(|stat| map_to_mqtt_message(stat, &CONFIG))
         .collect()
 }
 
-fn map_to_mqtt_message(stats: &ContainerStats, root_topic_template: &str) -> Vec<MqttMessage> {
-    let device_id = env::var("BALENA_DEVICE_UUID").unwrap_or((&CONFIG.device_id).to_string());
-    let base_topic = root_topic_template
-        .replace("{device_id}", &device_id)
+fn map_to_mqtt_message(stats: &ContainerStats, config: &MqttConfig) -> Vec<MqttMessage> {
+    let base_topic = &config.root_topic_template
+        .replace("{device_id}", &config.device_id)
+        .replace("{unit}", &config.unit)
         .replace("{service_name}", &stats.service_name);
 
     [
@@ -125,20 +125,20 @@ mod tests {
         };
         let expected = [
             MqttMessage {
-                topic: "root/d35a7ea843c61c723a12f19a41c26ef1/telemetry/system/b/memory_usage_in_percent"
+                topic: "root/d35a7ea843c61c723a12f19a41c26ef1/telemetry/my-unit/b/memory_usage_in_percent"
                     .to_string(),
                 value: input.mem_usage_in_percent.unwrap(),
             },
             MqttMessage {
-                topic: "root/d35a7ea843c61c723a12f19a41c26ef1/telemetry/system/b/cpu_usage_in_percent"
+                topic: "root/d35a7ea843c61c723a12f19a41c26ef1/telemetry/my-unit/b/cpu_usage_in_percent"
                     .to_string(),
                 value: input.cpu_usage_in_percent.unwrap(),
             },
         ]
             .to_vec();
-        let root_topic_template = "root/{device_id}/telemetry/system/{service_name}";
+        let config: MqttConfig = get_config(build_path(vec!["test-data/config/mqtt.config.json"]));
 
-        let actual = map_to_mqtt_message(&input, &root_topic_template);
+        let actual = map_to_mqtt_message(&input, &config);
 
         assert_eq!(actual, expected)
     }
@@ -150,9 +150,11 @@ mod tests {
         let actual: MqttConfig = get_config(test_config_path);
 
         assert_eq!(actual.broker_url, "tcp://localhost:1883");
+        assert_eq!(actual.device_id, "d35a7ea843c61c723a12f19a41c26ef1");
+        assert_eq!(actual.unit, "my-unit");
         assert_eq!(
             actual.root_topic_template,
-            "root/{device_id}/telemetry/system/{service_name}"
+            "root/{device_id}/telemetry/{unit}/{service_name}"
         );
     }
 
