@@ -1,0 +1,6 @@
+{
+  "broker_url": "tcp://127.0.0.1:1883",
+  "device_id": "d35a7ea843c61c723a12f19a41c26ef1",
+  "unit": "my-unit",
+  "root_topic_template": "isb/{device_id}/telemetry/{unit}/{service_name}"
+}

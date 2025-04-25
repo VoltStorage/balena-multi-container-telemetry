@@ -1,0 +1,6 @@
+{
+  "mode": "CLI",
+  "cli_path": "docker",
+  "file_path": "data/test-data/balena_stats_stdout.txt",
+  "collection_interval_in_seconds": 15
+}

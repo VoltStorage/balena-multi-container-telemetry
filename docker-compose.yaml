@@ -7,5 +7,4 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./config:/app/data/config
-      - ./test-data:/app/data/test-data
-      - ./log:/app/data/log
+      - ./data/log:/app/data/log
