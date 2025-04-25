@@ -3,6 +3,13 @@
 This program provides CPU, memory, network, and I/O metrics for all containers running in a Balena multi-container
 setup. It collects metrics from CLI commands (`balena stats`) or a file and exports them to MQTT topics.
 
+# Latest Docker Image
+
+You can find the latest Docker image on Docker Hub:
+
+[https://img.shields.io/badge/Docker%20Hub-Visit%20Repository-blue](https://hub.docker.com/r/voltstorage/balena-multi-container-telemetry)
+
+
 ## Deployment, Configuration, and Execution
 
 Two modes for collecting metrics:
