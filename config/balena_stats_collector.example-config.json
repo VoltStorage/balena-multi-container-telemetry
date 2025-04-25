@@ -1,6 +1,0 @@
-{
-  "mode": "FILE",
-  "cli_path": "balena",
-  "file_path": "./my-path/stats_output.txt",
-  "collection_interval_in_seconds": 2
-}

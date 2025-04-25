@@ -7,8 +7,7 @@ setup. It collects metrics from CLI commands (`balena stats`) or a file and expo
 
 You can find the latest Docker image on Docker Hub:
 
-[https://img.shields.io/badge/Docker%20Hub-Visit%20Repository-blue](https://hub.docker.com/r/voltstorage/balena-multi-container-telemetry)
-
+[![Icon with link to DockerHub](https://img.shields.io/badge/Docker%20Hub-Visit%20Repository-blue)](https://hub.docker.com/r/voltstorage/balena-multi-container-telemetry)
 
 ## Deployment, Configuration, and Execution
 
@@ -26,7 +25,7 @@ to the relative "config/" directory but can be overridden via `CONFIG_DIR` env v
 
 ### Collectors
 
-Configuration is in `config/balena_stats_collector.config.json`; see `balena_stats_collector.example-config.json`:
+Configuration is in `config/balena_stats_collector.config.json`; see `default-config/`:
 
 - `collection_interval_in_seconds`: Interval in seconds for starting collection.
 - `mode`: `CLI` or `FILE`; see below.
@@ -52,7 +51,7 @@ must match output from `balena stats --no-stream --format {{json .}}`.
 
 ### Exporters
 
-Configure MQTT exporter via `config/mqtt.config.json` (see `mqtt.example-config.json`).
+Configure MQTT exporter via `config/mqtt.config.json` (see `/default-config`).
 
 - `broker_url`: e.g., `tcp://localhost:1883`; only unauthenticated connections supported currently.
 - `device_id`: Identifier for a device

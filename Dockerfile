@@ -26,5 +26,6 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 COPY --from=builder /app/target/aarch64-unknown-linux-gnu/release/balena-multi-container-telemetry /app/balena-multi-container-telemetry
+COPY default-config /app/default-config
 
 CMD ["./balena-multi-container-telemetry"]
