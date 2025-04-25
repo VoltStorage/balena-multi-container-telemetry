@@ -7,8 +7,7 @@ setup. It collects metrics from CLI commands (`balena stats`) or a file and expo
 
 You can find the latest Docker image on Docker Hub:
 
-[https://img.shields.io/badge/Docker%20Hub-Visit%20Repository-blue](https://hub.docker.com/r/voltstorage/balena-multi-container-telemetry)
-
+[![Icon with link to DockerHub](https://img.shields.io/badge/Docker%20Hub-Visit%20Repository-blue)](https://hub.docker.com/r/voltstorage/balena-multi-container-telemetry)
 
 ## Deployment, Configuration, and Execution
 
